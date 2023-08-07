@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from './Home.module.css';
+import PopularAnime from '../PopularAnime/PopularAnime';
 const Home = () => {
   return (
-    <div className={styles.home}>Home</div>
+    <section className={styles.home}>
+      <PopularAnime />
+    </section>
   )
 }
 

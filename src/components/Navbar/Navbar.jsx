@@ -17,9 +17,9 @@ const Navbar = () => {
       <ul className={styles.ul}>
         <li className={styles.li}>
           <form className={styles.form} onSubmit={handleSubmit}>
-            <input className={styles.input} type='text' placeholder='Search...' value={text} onChange={(e)=>setText(e.target.value)}/>
+            <input className={styles.input} type='text' placeholder='Search anime...' value={text} onChange={(e)=>setText(e.target.value)}/>
             <button className={styles.button} type='submit'>
-              <i class="ri-search-2-line"></i>
+              <i className="ri-search-2-line"></i>
             </button>
           </form>
         </li>

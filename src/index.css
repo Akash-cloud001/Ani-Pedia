@@ -3,11 +3,15 @@
   --ff-inter : 'Inter', sans-serif;
 
   /* colors */
-  --c-white : #Edf5e1;
+  --c-white : #fff;
   --c-oxford : #05386b;
   --c-green-s : #379683;
   --c-neon : #5cdb95;
   --c-neon-light : #8ee4af;
+  --c-bg-color : #242428;
+  --c-text-color : #79797b;
+  --c-hover : #ffdd95;
+  --c-yellow :#ffc107;
   /* Padding */
   --p-4 : 0.25rem;
   --p-8 : 0.5rem;
@@ -23,8 +27,8 @@
   --m-20 : 1.25rem;
 
   line-height: 1.5;
-  background-color: var(--c-neon);
-  color: var(--c-oxford);
+  background-color: var(--c-bg-color);
+  color: var(--c-white);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -40,6 +44,11 @@ body{
 }
 ul{
   list-style: none;
+}
+button{
+  background: transparent;
+  border: none;
+  height: max-content;
 }
 /* 
 @media ( max-width : 1199.98px){
