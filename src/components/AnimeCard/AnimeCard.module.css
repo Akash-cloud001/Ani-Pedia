@@ -38,4 +38,14 @@
     color: var(--c-text-color);
     font-size: small;
 }
-
+.type{
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.72);
+    padding: var(--p-4);
+    position: absolute;
+    bottom: 0.25rem;
+    right: 0;
+    color: var(--c-text-color);
+    font-size: small;
+}

@@ -1,10 +1,11 @@
 import React from 'react'
 import styles from './AnimeCard.module.css';
-const AnimeCard = ({title, imgUrl, score, rating, synopsis}) => {
+import { Link } from 'react-router-dom';
+const AnimeCard = ({id, title, title_english, images, score, rating, synopsis, type}) => {
     let charLimit = 0;
     let trimmedSyn = ''
     for(let ch in synopsis){
-        if(charLimit === 150){
+        if(charLimit === 200){
             trimmedSyn+='...';
             break;
         }
@@ -12,16 +13,19 @@ const AnimeCard = ({title, imgUrl, score, rating, synopsis}) => {
         charLimit++;
     }
   return (
-    <div className={styles.card}>
+    <Link className={styles.card} to={`/single-anime/${title_english}/${id}`}>
         <figure className={styles.figure}>
-            <img alt={title.english} src={imgUrl.jpg.md} className={styles.img}/>
+            <img alt={title.english} src={images.jpg.large_image_url} className={styles.img}/>
             <p className={styles.score}>
-                <i class="ri-star-fill"></i>&nbsp;{score}
+                <i className="ri-star-fill"></i>&nbsp;{score}
+            </p>
+            <p className={styles.type}>
+                <i className="ri-checkbox-blank-circle-fill"></i> &nbsp;{type}
             </p>
         </figure>
         <aside className={styles.aside}>
             <h4 className={styles.title}>
-                {title.english} / {title.japanese}
+                {title_english} / {title}
             </h4>
             
             <p className={styles.rating}>
@@ -31,8 +35,7 @@ const AnimeCard = ({title, imgUrl, score, rating, synopsis}) => {
                 {trimmedSyn}
             </p>
         </aside>
-
-    </div>
+    </Link>
   )
 }
 

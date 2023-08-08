@@ -42,6 +42,8 @@ const DataProvider = ({children}) => {
     }
     if(POPULAR.length === 0){
       fetchData(filterURL.popular);
+    }else{
+      setPopular(POPULAR);
     }
       
     if(AIRING.length === 0){
@@ -49,6 +51,8 @@ const DataProvider = ({children}) => {
       setTimeout(()=>{
         fetchData(filterURL.airing);
       }, 1000);    
+    }else{
+      setAiring(AIRING);
     }
 
     //to remove Loading Component
