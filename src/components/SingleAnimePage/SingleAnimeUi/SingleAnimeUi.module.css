@@ -1,3 +1,138 @@
 .main{
     margin-top: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 2rem;
+    padding: calc(var(--p-16) * 4);
+    position: relative;
+}
+.bg{
+    position: absolute;
+    height: calc(100vh - 64px - 64px);
+    inset: 0;
+    width: 100%;
+    filter: blur(100px) grayscale(1);
+    z-index: -1;
+}
+.header{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    
+}
+.headerFig{
+    width: 100%;
+}
+.headerImg{
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: contain;
+}
+.headerAside{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.title{
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: start;
+}
+.title span, i{
+    vertical-align: middle;
+    font-size: small;
+    margin-left: var(--m-8);
+}
+.status{
+    font-weight: 400;
+}
+.description{
+    font-weight: 400;
+    font-size: small;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.description span{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.description span i{
+    color: var(--c-text-color);
+    margin-left: 0;
+}
+.description span:nth-child(1) i{
+    color: var(--c-yellow);
+}
+.description > i{
+    font-size: xx-small;
+    font-weight: 200;
+}
+.synopsis{
+    font-weight: 300;
+}
+.toggleBtn{
+    margin-left: 0.5rem;
+    font-weight: 600;
+    color: var(--c-yellow);
+}
+
+@media ( max-width : 1199.98px){
+    .main{
+    padding: calc(var(--p-16) * 3);  
+    }
+}
+@media ( max-width : 991.98px){
+    .main{
+        padding: calc(var(--p-16) * 2);  
+    }
+    .title{
+        font-size: 2rem;
+    }
+    .status{
+        font-size: medium;
+    }
+}
+@media ( max-width : 767.98px){
+    .main{
+        padding: var(--p-16);  
+    }
+    .header{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 2fr;
+    }
+    .headerFig{
+        width: 100%;
+        height: 300px;
+        display: flex;
+        place-content: center;
+    }
+    .headerImg{
+        aspect-ratio: 1;
+        width: 50%;
+        margin-inline: auto;
+    }
+}
+@media ( max-width : 575px){
+    .title{
+        font-size: 1.5rem;
+    }
+    .status{
+        font-size: small;
+    }
+    .description{
+        font-size: x-small;
+    }
+    .description span i{
+        font-size: x-small;
+    }
+    .synopsis{
+        font-size: small;
+    }
 }
