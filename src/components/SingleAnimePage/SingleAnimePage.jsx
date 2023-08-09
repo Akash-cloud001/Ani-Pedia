@@ -19,6 +19,7 @@ const SingleAnimePage = () => {
     }
     fecthData();
   },[])
+  console.log(about);
   return (
     <>
       {isLoading? <Loading /> : null}

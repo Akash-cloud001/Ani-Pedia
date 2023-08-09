@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styles from './SingleAnimeUi.module.css';
+import YoutubeEmbeded from '../YoutubeEmbeded/YoutubeEmbeded';
 const SingleAnimeUi = ({
   airing,
   duration,
@@ -54,7 +55,7 @@ const SingleAnimeUi = ({
           <p className={styles.description}>
             
             <span>
-              <i class="ri-star-s-fill"></i>&nbsp;{score}
+              <i className="ri-star-s-fill"></i>&nbsp;{score}
             </span>
             
             <span>
@@ -92,11 +93,26 @@ const SingleAnimeUi = ({
       </header>
       <hr/>
       <figure className={styles.videoPlayer}>
-
+            <h2 className={styles.sectionHeader}>Trailer</h2>
+            <YoutubeEmbeded embededId={trailer.youtube_id} title={title}/>
       </figure>
+      <hr/>
       <div className={styles.streaming}>
-
+            <h2 className={styles.sectionHeader}>Streaming Platforms</h2>
+            {streaming.length !== 0 ? 
+            <ul className={styles.streamingUl}>
+              {
+                streaming.map((item, index)=>{
+                  return <li key={item.name} className={styles.streamingLi}>
+                            <a href={item.url} target='_blank'>Link from {item.name}</a>
+                          </li>
+                }) 
+              }
+            </ul> : 
+            "Oops There isn't any platform available"
+            }
       </div>
+      <hr/>
       <div className={styles.gallery}>
 
       </div>

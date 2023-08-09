@@ -16,12 +16,15 @@
 }
 .score{
     position: absolute;
-    bottom: 0.25rem;
+    bottom: 0.35rem;
     left: 0rem;
     backdrop-filter: blur(25px) saturate(180%);
     -webkit-backdrop-filter: blur(25px) saturate(180%);
     background-color: rgba(17, 25, 40, 0.72);
     padding: var(--p-4);
+    color: var(--c-text-color);
+    font-size: small;
+
 }
 .score i{
     color: var(--c-yellow);
@@ -44,7 +47,7 @@
     background-color: rgba(17, 25, 40, 0.72);
     padding: var(--p-4);
     position: absolute;
-    bottom: 0.25rem;
+    bottom: 0.35rem;
     right: 0;
     color: var(--c-text-color);
     font-size: small;

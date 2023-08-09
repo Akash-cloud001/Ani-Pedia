@@ -82,6 +82,28 @@
     font-weight: 600;
     color: var(--c-yellow);
 }
+.videoPlayer{
+    width: 100%;
+    margin-inline: auto;
+}
+.sectionHeader{
+    margin-bottom: var(--m-16);
+    text-align: left;
+}
+.streaming{
+    width: 100%;
+}
+.streamingUl{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    list-style-type: disc;
+    margin-left: 1rem;
+}
+.streamingLi a{
+    color: var(--c-yellow);
+}
 
 @media ( max-width : 1199.98px){
     .main{
@@ -109,13 +131,13 @@
     }
     .headerFig{
         width: 100%;
-        height: 300px;
+        padding-bottom: var(--p-16);
         display: flex;
         place-content: center;
     }
     .headerImg{
         aspect-ratio: 1;
-        width: 50%;
+        width: 75%;
         margin-inline: auto;
     }
 }
