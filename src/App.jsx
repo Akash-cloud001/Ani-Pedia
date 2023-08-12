@@ -8,9 +8,7 @@ import Footer from './components/Footer/Footer';
 import { Routes, Route } from 'react-router-dom';
 import SingleAnimePage from './components/SingleAnimePage/SingleAnimePage';
 import PopularAnime from './components/PopularAnime/PopularAnime';
-import AiringAnime from './components/AiringAnime/AiringAnime'
-
-
+import AiringAnime from './components/AiringAnime/AiringAnime';
 
 function App() {
   const { loader } = useContext(DataContext);

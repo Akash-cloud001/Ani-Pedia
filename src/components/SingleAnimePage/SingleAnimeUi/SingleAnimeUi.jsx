@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styles from './SingleAnimeUi.module.css';
 import YoutubeEmbeded from '../YoutubeEmbeded/YoutubeEmbeded';
+import Gallery from '../Gallery/Gallery';
 const SingleAnimeUi = ({
   airing,
   duration,
@@ -17,7 +18,8 @@ const SingleAnimeUi = ({
   title_synonyms,
   trailer,
   type,
-  year
+  year,
+  character
 }) => {
 
   const [toggle, setToggle] = useState(false);
@@ -30,11 +32,25 @@ const SingleAnimeUi = ({
   let strippedSynopsis = '';
   const limit = 200;
   let count = 0;
-  while(count <= limit){
-    strippedSynopsis += synopsis[count];
+  for(let ch in synopsis){
+    if(count >= 200){
+      strippedSynopsis+='...';
+      break;
+    }
+    strippedSynopsis+=synopsis[ch];
     count++;
   }
-  strippedSynopsis+='...';
+  
+  const characterArr = [];
+  const LENGTH = character.data.length;
+  if(LENGTH > 10){
+    for(let i=0; i<10; i++){
+      characterArr.push(character.data[i]);
+    }
+  }else{
+    characterArr = [...character.data];
+  }
+  console.log(characterArr);
 
   return (
     <section className={styles.main}>
@@ -83,7 +99,7 @@ const SingleAnimeUi = ({
           </p>
           <p className={styles.synopsis}>
             {!toggle ? strippedSynopsis : synopsis}
-            {synopsis.length > limit && !toggle ? 
+            { !toggle ? 
               <button className={styles.toggleBtn} onClick={handleSetToggle}>Show More</button> 
               : 
               <button className={styles.toggleBtn} onClick={handleSetToggle}>Show Less</button>
@@ -114,8 +130,10 @@ const SingleAnimeUi = ({
       </div>
       <hr/>
       <div className={styles.gallery}>
-
+        <h2 className={styles.sectionHeader}>Gallery</h2>
+        {characterArr && <Gallery characterList={characterArr}/>}
       </div>
+      <hr/>
     </section>
   )
 }

@@ -104,7 +104,9 @@
 .streamingLi a{
     color: var(--c-yellow);
 }
-
+.gallery{
+    width: 100%;
+}
 @media ( max-width : 1199.98px){
     .main{
     padding: calc(var(--p-16) * 3);  
