@@ -11,18 +11,18 @@ import PopularAnime from './components/PopularAnime/PopularAnime';
 import AiringAnime from './components/AiringAnime/AiringAnime';
 
 function App() {
-  const { loader } = useContext(DataContext);
+  const { loader, popular, airing } = useContext(DataContext);
   return (
-    <main className='app'>
-    <Navbar />
-      <Routes>
-        <Route path='/' element={ loader? <Loading/>:<Home/>} />
-        <Route path='/popular' element={<PopularAnime />}/>
-        <Route path='/airing' element={<AiringAnime />}/>
-        <Route path='/single-anime/:name/:id' element={<SingleAnimePage />} />
-      </Routes>
-    <Footer/>
-    </main>
+  <main className='app'>
+  <Navbar />
+    <Routes>
+      <Route path='/' element={loader ? <Loading/>:<Home/>} />
+      <Route path='/popular' element={<PopularAnime />}/>
+      <Route path='/airing' element={<AiringAnime />}/>
+      <Route path='/single-anime/:name/:id' element={<SingleAnimePage />} />
+    </Routes>
+  <Footer/>
+  </main>
   )
 }
 

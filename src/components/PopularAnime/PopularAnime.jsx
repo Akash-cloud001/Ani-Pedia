@@ -1,9 +1,14 @@
 import React from 'react'
 import styles from './PopularAnime.module.css';
 
-const PopularAnime = () => {
+const PopularAnime = ({data}) => {
+
+  
+
   return (
-    <div>PopularAnime</div>
+    <section className={styles.popSec}>
+
+    </section>
   )
 }
 

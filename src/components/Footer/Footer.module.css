@@ -1,0 +1,50 @@
+.footer{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-inline: auto;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-top: var(--p-24);
+    padding-bottom: var(--p-8);
+}
+.logoBox{
+    height: 75px;
+    width: 75px;
+}
+.logoBox > img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+.socialUl{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    font-size: larger;
+}
+
+.socialUl > li > a > i{
+    color: var(--c-yellow);
+    font-size: 2rem;
+}
+.benchmark{
+    color: var(--c-text-color);
+    text-align: end;
+}
+.benchmark>i{
+    font-size: large;
+}
+@media (max-width : 575px){
+    .footer{
+        width: 80%;
+    }
+    .socialUl > li > a > i{
+        font-size: 1.5rem;
+    }
+    .benchmark{
+        font-size: small;
+    }
+}

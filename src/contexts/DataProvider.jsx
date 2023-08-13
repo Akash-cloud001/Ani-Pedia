@@ -6,7 +6,6 @@ export const DataContext = createContext();
 const baseURL =' https://api.jikan.moe/v4/top/anime?filter=';
 const filterURL = {airing : 'airing', popular : 'bypopularity'};
 
-
 const DataProvider = ({children}) => {
   
   const POPULAR = JSON.parse(window.localStorage.getItem('popular')) || [];
@@ -16,52 +15,54 @@ const DataProvider = ({children}) => {
   const [popular, setPopular] = useState([]);
   const [airing, setAiring] = useState([]);
 
-  function removeLoading(){
-    setTimeout(()=>{
-      setLoader(false);
-    }, 2000);
+  const [popularPageData, setPopularPageData] = useState([]);
+  const [airingPageData, setAiringPageData] = useState([]);
+
+
+
+  async function fetchDataForHomePage(){
+    await axios.get(`${baseURL}${filterURL.popular}`)
+    .then((res)=>{
+      const data = res.data;
+      setPopular(data);
+    });
+    await axios.get(`${baseURL}${filterURL.airing}`)
+    .then((res)=>{
+      const data = res.data;
+      setAiring(data);
+    });
+    setLoader(false);
   }
 
+  async function fetchPopularData(pageNo = 1){
+    setLoader(true);
+    await axios.get(`${baseURL}${filterURL.popular}&page=${pageNo}`)
+    .then((response)=>{
+      const data = response.data;
+      setPopularPageData(data);
+      setLoader(false);
+    });
+  }
+
+  async function fetchAiringData(pageNo = 1){
+    setLoader(true);
+    await axios.get(`${baseURL}${filterURL.airing}&page=${pageNo}`)
+    .then((response)=>{
+      const data = response.data;
+      setAiringPageData(data);
+      setLoader(false);
+    });
+  }
+
+
   useEffect(()=>{
-    async function fetchData(filter){
-      switch (filter){
-        case filterURL.popular:
-          await axios.get(`${baseURL}${filter}`).then((response)=>{
-            window.localStorage.setItem('popular', JSON.stringify(response.data));
-            setPopular(response.data);
-          });
-          break;
-        case filterURL.airing:
-          await axios.get(`${baseURL}${filter}`).then((response)=>{
-            window.localStorage.setItem('airing',JSON.stringify(response.data));
-            setAiring(response.data);
-          });
-        break;
-      }
-      
-    }
-    if(POPULAR.length === 0){
-      fetchData(filterURL.popular);
-    }else{
-      setPopular(POPULAR);
-    }
-      
-    if(AIRING.length === 0){
-      //Just to delay a request on api so we can fetch the data... 
-      setTimeout(()=>{
-        fetchData(filterURL.airing);
-      }, 1000);    
-    }else{
-      setAiring(AIRING);
-    }
-
-    //to remove Loading Component
-    removeLoading();
-
+    //? fetching DATA when componentDidMount
+    fetchDataForHomePage();
   },[])
 
+
   return (
-    <DataContext.Provider value={{loader, POPULAR, AIRING}}>
+    <DataContext.Provider value={{loader, popular, airing, popularPageData, airingPageData}}>
       {children}
     </DataContext.Provider>
   )

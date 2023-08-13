@@ -1,0 +1,4 @@
+.popSec{
+    margin-top: 64px;
+    padding: (calc(var(--p-16) * 4));
+}
