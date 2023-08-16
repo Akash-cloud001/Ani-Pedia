@@ -36,13 +36,24 @@
 }
 .btn{
     width: max-content;
-    color: var(--c-yellow);
     border-radius: 50%;
     text-align: center;
     margin-top: var(--m-16);
     position: relative;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    color: var(--c-yellow);
+    font-size: 1rem;
 }
-.btn > span{
+.btn > i{
+    margin: 0;
+    font-size: 2rem;
+}
+.btn:disabled{
+    color: var(--c-text-color);
+}
+/* .btn > span{
     position: absolute;
     bottom: -75%;
     left: 50%;
@@ -56,6 +67,9 @@
     font-size: 2rem;
     margin-left: 0;
 }
+.btn:disabled > i, span{
+    color: grey;
+} */
 @media ( max-width : 1199.98px){
 
     .pageMain{
