@@ -50,7 +50,6 @@ const SingleAnimeUi = ({
   }else{
     characterArr = [...character.data];
   }
-  console.log(characterArr);
 
   return (
     <section className={styles.main}>

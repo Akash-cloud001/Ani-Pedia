@@ -109,7 +109,7 @@
 }
 @media ( max-width : 1199.98px){
     .main{
-    padding: calc(var(--p-16) * 3);  
+        padding: calc(var(--p-16) * 3);  
     }
 }
 @media ( max-width : 991.98px){

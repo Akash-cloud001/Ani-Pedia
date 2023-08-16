@@ -1,11 +1,11 @@
 import React from 'react'
 import styles from './Loader.module.css';
-import animationData from '../../assets/JSON/animation_lkuu0ipy.json';
+import animationData from '../../assets/JSON/animation_yellow_loader.json';
 import Lottie from 'lottie-react';
 const Loading = () => {
   return (
     <div className={styles.loader}>
-      <Lottie animationData={animationData}/>
+      <Lottie animationData={animationData} className={styles.lottie}/>
     </div>
   )
 }

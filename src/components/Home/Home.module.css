@@ -6,12 +6,12 @@
     flex-direction: column;
     row-gap: 3rem;
 }
-@media (min-width: 1400px){
+/* @media (min-width: 1400px){
     .home{
         width: 80%;
         margin-inline: auto;
     }
-}
+} */
 @media ( max-width : 1199.98px){
     
 }

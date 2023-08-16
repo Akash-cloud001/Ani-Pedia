@@ -28,8 +28,6 @@ const SingleAnimePage = () => {
     fetchAnime();
     fetchAnimeCharacter();
   },[])
-  console.log(about);
-  console.log('character', character);
   return (
     <>
       {isLoading? <Loading /> : null}
