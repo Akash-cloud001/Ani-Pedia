@@ -46,21 +46,7 @@ const DataProvider = ({children}) => {
   }
 
 
-  async function fetchAiringData(pageNo = 1){
-    setLoader(true);
-    
-    await axios.get(`${baseURL}${filterURL.airing}&page=${pageNo}`)
-    .then((response)=>{
-    
-      const data = response.data;
-      
-      sessionStorage.setItem(`airing${pageNo}`, JSON.stringify(response.data));
-      
-      setAiringPageData(JSON.parse(sessionStorage.getItem(`airing${pageNo}`)));
-    
-      setLoader(false);
-    });
-  }
+
 
   useEffect(()=>{
     //? fetching DATA when componentDidMount
@@ -73,8 +59,6 @@ const DataProvider = ({children}) => {
       loader,
       popular, 
       airing, 
-      airingPageData, 
-      fetchAiringData
     }}>
       {children}
     </DataContext.Provider>

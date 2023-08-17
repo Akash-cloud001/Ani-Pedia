@@ -21,7 +21,6 @@ const SingleAnimeUi = ({
   year,
   character
 }) => {
-
   const [toggle, setToggle] = useState(false);
 
   function handleSetToggle(e){
@@ -41,7 +40,7 @@ const SingleAnimeUi = ({
     count++;
   }
   
-  const characterArr = [];
+  let characterArr = [];
   const LENGTH = character.data.length;
   if(LENGTH > 10){
     for(let i=0; i<10; i++){
@@ -50,6 +49,10 @@ const SingleAnimeUi = ({
   }else{
     characterArr = [...character.data];
   }
+
+
+  const header_title = title_english !== null ? `${title_english} / ${title}` : title; 
+
 
   return (
     <section className={styles.main}>
@@ -60,7 +63,7 @@ const SingleAnimeUi = ({
         </figure>
         <aside className={styles.headerAside}>
           <h2 className={styles.title}>
-            {title} / {title_english} 
+            {header_title} 
             <i className="ri-checkbox-blank-circle-fill"></i>
             <span className={styles.details}>{year}</span>
           </h2>
@@ -69,41 +72,46 @@ const SingleAnimeUi = ({
           </h3>
           <p className={styles.description}>
             
-            <span>
+            {score && <span>
               <i className="ri-star-s-fill"></i>&nbsp;{score}
-            </span>
+            </span>}
             
-            <span>
+            {type && <span>
               <i className="ri-checkbox-blank-circle-fill"></i>&nbsp;
               {type}
-            </span>
+            </span>}
             
 
-            <span>
+            {duration && <span>
               <i className="ri-checkbox-blank-circle-fill"></i>&nbsp;
               {duration}
-            </span>
+            </span>}
+            
+            {episodes && <span>
+              <i className="ri-checkbox-blank-circle-fill"></i>&nbsp;
+              {episodes}
+            </span>}
             
 
-            <span>
+            {source && <span>
               <i className="ri-checkbox-blank-circle-fill"></i>&nbsp;
               {source}
-            </span>
+            </span>}
             
 
-            <span>
+            {rating && <span>
               <i className="ri-checkbox-blank-circle-fill"></i>&nbsp;
               {rating}
-            </span>
+            </span>}
           </p>
-          <p className={styles.synopsis}>
+          {strippedSynopsis && synopsis && <p className={styles.synopsis}>
             {!toggle ? strippedSynopsis : synopsis}
             { !toggle ? 
               <button className={styles.toggleBtn} onClick={handleSetToggle}>Show More</button> 
               : 
               <button className={styles.toggleBtn} onClick={handleSetToggle}>Show Less</button>
             }
-          </p>
+          </p>}
         </aside>
       </header>
       <hr/>

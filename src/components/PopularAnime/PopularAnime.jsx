@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { baseURL, filterURL } from '../../contexts/DataProvider';
 import styles from './PopularAnime.module.css';
@@ -29,31 +29,52 @@ const PopularAnime = () => {
     });
   }
 
-  function handleNextPage(){
+  const handleNextPage = ()=>{
     //TODO
     let temp = nextPage + 1;
-    setNextPage(prev=>prev+1);
+    setNextPage(nextPage+1);
+    console.log(temp, 'next')
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+
     navigate(`/popular/${temp}`);
+    return;
   }
+
   function handlePrevPage(){
     //TODO
     let temp = nextPage - 1;
-    if(temp === 0) return;
-    setNextPage(prev=>prev-1);
-    navigate(`/popular/${temp}`);
+    console.log(temp, 'perv');
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+    if(temp >= 1){
+      setNextPage(nextPage - 1);
+      navigate(`/popular/${temp}`);
+    }
+    else{
+      navigate('/');
+    }
+    return;
   }
   
+  const handlePopState = ()=>{
+    handlePrevPage();
+  };
+
   useEffect(()=>{
     fetchPopularData(pageNum);
   },[nextPage]);
 
   useEffect(()=>{
-      console.log(`popular Data of page Num ${pageNum}`);
       fetchPopularData(pageNum);
-      window.addEventListener('popstate',()=>{
-          handlePrevPage();
-      });
-      
+      window.addEventListener('popstate', handlePopState);
+      return ()=>{
+        window.removeEventListener('popstate',handlePopState);
+      }
   },[]);
 
 

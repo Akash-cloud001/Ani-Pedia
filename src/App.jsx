@@ -16,9 +16,9 @@ function App() {
   <main className='app'>
   <Navbar />
     <Routes>
-      <Route path='/' element={loader ? <Loading/>:<Home/>} />
+      <Route path='/' element={<Home/>} />
       <Route path='/popular/:pageNum' element={<PopularAnime />}/>
-      <Route path='/airing' element={<AiringAnime />}/>
+      <Route path='/airing/:pageNum' element={<AiringAnime />}/>
       <Route path='/single-anime/:name/:id' element={<SingleAnimePage />} />
     </Routes>
   <Footer/>
