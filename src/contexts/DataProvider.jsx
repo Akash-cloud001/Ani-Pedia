@@ -12,8 +12,6 @@ const DataProvider = ({children}) => {
   const [popular, setPopular] = useState(JSON.parse(sessionStorage.getItem('popular')) || []);
   const [airing, setAiring] = useState(JSON.parse(sessionStorage.getItem('airing')) || []);
 
-  const [airingPageData, setAiringPageData] = useState([]);
-
 
 
   async function fetchDataForHomePage(){
@@ -23,21 +21,16 @@ const DataProvider = ({children}) => {
   
         const data = res.data;
   
-        sessionStorage.setItem('popular', JSON.stringify(res.data));
-        console.log('pop')
-  
+        sessionStorage.setItem('popular', JSON.stringify(res.data));  
         setPopular(JSON.parse(sessionStorage.getItem('popular')));
-  
       });
     }
     if(airing.length === 0){
       await axios.get(`${baseURL}${filterURL.airing}`)
       .then((res)=>{
   
-        const data = res.data;
-  
+        const data = res.data;  
         sessionStorage.setItem('airing', JSON.stringify(res.data));
-        console.log('air')
         setAiring(JSON.parse(sessionStorage.getItem('airing')));
       });
     }

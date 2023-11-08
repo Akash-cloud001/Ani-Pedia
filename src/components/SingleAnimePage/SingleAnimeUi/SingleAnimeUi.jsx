@@ -56,7 +56,7 @@ const SingleAnimeUi = ({
 
   return (
     <section className={styles.main}>
-      <img className={styles.bg} src={images.jpg.large_image_url} />
+      <img className={styles.bg} src={images.jpg.large_image_url} alt={title}/>
       <header className={styles.header}>
         <figure className={styles.headerFig}>
           <img className={styles.headerImg} src={images.jpg.large_image_url} alt={title_english}/>
@@ -87,12 +87,6 @@ const SingleAnimeUi = ({
               {duration}
             </span>}
             
-            {episodes && <span>
-              <i className="ri-checkbox-blank-circle-fill"></i>&nbsp;
-              {episodes}
-            </span>}
-            
-
             {source && <span>
               <i className="ri-checkbox-blank-circle-fill"></i>&nbsp;
               {source}

@@ -17,7 +17,7 @@ const AnimeCard = ({id, title, title_english, images, score, rating, synopsis, t
   return (
     <Link className={styles.card} to={`/single-anime/${urlTitle}/${id}`}>
         <figure className={styles.figure}>
-            <img alt={title.english} src={images.jpg.large_image_url} className={styles.img}/>
+            <img alt={title} src={images.jpg.large_image_url} className={styles.img}/>
             <p className={styles.score}>
                 <i className="ri-star-fill"></i>&nbsp;{score}
             </p>

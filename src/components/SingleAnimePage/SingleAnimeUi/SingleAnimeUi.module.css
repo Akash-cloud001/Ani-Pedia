@@ -54,6 +54,7 @@
     font-size: small;
     display: flex;
     width: 100%;
+    max-width: 768px;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
@@ -122,6 +123,13 @@
     .status{
         font-size: medium;
     }
+    .description{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .description span:last-child{
+        width: max-content;
+    }
 }
 @media ( max-width : 767.98px){
     .main{
@@ -147,14 +155,24 @@
     .title{
         font-size: 1.5rem;
     }
+    .headerImg{
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+    }
     .status{
         font-size: small;
     }
     .description{
-        font-size: x-small;
+        font-size: small;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
     }
-    .description span i{
-        font-size: x-small;
+    .description span:first-child{
+        grid-area: 1/1/2/2;
+    }
+    .description span:last-child{
+        grid-area: 4/1/5/2;
     }
     .synopsis{
         font-size: small;
