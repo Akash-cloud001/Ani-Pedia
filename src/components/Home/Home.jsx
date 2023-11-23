@@ -10,9 +10,9 @@ const Home = () => {
     {loader? <Loading /> : null}
     {!loader && popular && airing &&
       <section className={styles.home}>
-        <AnimeHome name='popular' animeData={popular.data} />
-        <hr/>
         <AnimeHome name='airing' animeData={airing.data} />
+        <hr/>
+        <AnimeHome name='popular' animeData={popular.data} />
       </section>
     }
     </>

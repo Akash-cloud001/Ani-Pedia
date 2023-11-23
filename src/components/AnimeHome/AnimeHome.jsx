@@ -21,7 +21,7 @@ const PopularAnime = ({name, animeData}) => {
                 />
             })}
         </div>
-        <Link className={styles.btn} to={`${name}/1`}>
+        <Link className={styles.btn} to={`${name}/1`} target='_blank'>
             View More <i className="ri-arrow-right-line"></i>
         </Link>
     </div>

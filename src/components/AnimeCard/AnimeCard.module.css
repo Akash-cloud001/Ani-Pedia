@@ -4,6 +4,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     gap: 0.5rem;
+    width: 100%;
 }
 .figure{
     width: 100%;
@@ -32,11 +33,15 @@
 .aside{
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
 }
 .title{
     color: var(--c-white);
 }
+
 .aside p{
     color: var(--c-text-color);
     font-size: small;
@@ -52,3 +57,5 @@
     color: var(--c-text-color);
     font-size: small;
 }
+
+

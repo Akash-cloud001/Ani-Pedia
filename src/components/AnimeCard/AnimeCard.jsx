@@ -5,7 +5,7 @@ const AnimeCard = ({id, title, title_english, images, score, rating, synopsis, t
     let charLimit = 0;
     let trimmedSyn = ''
     for(let ch in synopsis){
-        if(charLimit === 200){
+        if(charLimit === 90){
             trimmedSyn+='...';
             break;
         }

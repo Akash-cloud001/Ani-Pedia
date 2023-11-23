@@ -30,10 +30,8 @@ const AiringAnime = () => {
   }
 
 const handleNextPage = ()=>{
-    //TODO
     let temp = nextPage + 1;
     setNextPage(nextPage+1);
-    console.log(temp, 'next')
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
@@ -44,36 +42,29 @@ const handleNextPage = ()=>{
   }
 
   function handlePrevPage(){
-    //TODO
     let temp = nextPage - 1;
-    console.log(temp, 'perv');
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
-    if(temp >= 1){
-      setNextPage(nextPage - 1);
+    if(nextPage > 1){
       navigate(`/airing/${temp}`);
-    }
-    else{
-      navigate('/');
+      setNextPage(temp);
+    }else{
+      navigate('/airing/1');
     }
     return;
   }
   
-  const handlePopState = ()=>{
-    handlePrevPage();
-  };
   useEffect(()=>{
     fetchAiringData(pageNum);
   },[nextPage]);
 
   useEffect(()=>{
     fetchAiringData(pageNum);
-      window.addEventListener('popstate', handlePopState);
-      return ()=>{
-        window.removeEventListener('popstate',handlePopState);
-      }
+      window.addEventListener('popstate', handlePrevPage);
+      return window.removeEventListener('popstate',handlePrevPage);
+
   },[]);
 
   return (
