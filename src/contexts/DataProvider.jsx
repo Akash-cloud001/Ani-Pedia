@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const DataContext = createContext();
 
-export const baseURL =' https://api.jikan.moe/v4/top/anime?sfw?filter=';
+export const baseURL ='https://api.jikan.moe/v4/top/anime?sfw&filter=';
 export const filterURL = {airing : 'airing', popular : 'bypopularity'};
 
 const DataProvider = ({children}) => {
