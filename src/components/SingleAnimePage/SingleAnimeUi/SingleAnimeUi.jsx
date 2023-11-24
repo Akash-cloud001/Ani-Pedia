@@ -126,7 +126,7 @@ const SingleAnimeUi = ({
                 }) 
               }
             </ul> : 
-            "Oops There isn't any platform available"
+            <span className={styles.streamingError}>"Oops There isn't any platform available"</span>
             }
       </div>
       <hr/>

@@ -31,7 +31,7 @@ const Footer = () => {
         </li>
       </ul>
       <div className={styles.benchmark}>
-        Handcrafted by me <i className="ri-copyright-line"></i> 2023
+      <i className="ri-copyright-line"></i> 2023 Anipedia. All rights reserved.
       </div>
     </footer>
   )

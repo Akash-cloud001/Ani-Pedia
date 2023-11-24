@@ -19,7 +19,7 @@
 .header{
     display: grid;
     grid-template-columns: 1fr 2fr;
-    
+    gap: 1rem;
 }
 .headerFig{
     width: 100%;
@@ -104,6 +104,10 @@
 }
 .streamingLi a{
     color: var(--c-yellow);
+}
+.streamingError{
+    color: red;
+    font-weight: bold;
 }
 .gallery{
     width: 100%;

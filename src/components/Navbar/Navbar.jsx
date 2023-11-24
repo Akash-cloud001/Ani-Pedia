@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Navbar.module.css';
 import axios from 'axios';
-import { NavLink ,Link, useNavigate,redirect } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -64,7 +64,7 @@ const Navbar = () => {
           <i className="ri-search-2-line"></i>
         </button>
         {query && queryData && <div className={styles.searchData}>
-          <div className={styles.searchUl}>
+          <ul className={styles.searchUl}>
             {queryData.map((element)=>{
               return <li 
                         key={element.mal_id} 
@@ -78,7 +78,7 @@ const Navbar = () => {
                         {element.title}
                       </li>
             })}
-          </div>
+          </ul>
         </div>}
       </form>
     </div>
