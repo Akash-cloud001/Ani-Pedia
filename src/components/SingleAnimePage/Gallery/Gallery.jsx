@@ -1,6 +1,7 @@
 import React from 'react';
 import Carousel from "react-elastic-carousel";
 import styles from './Gallery.module.css';
+import './GalleryCarousel.css';
 const breakPoints = [
     { width: 1, itemsToShow: 1 },
     { width: 550, itemsToShow: 2, itemsToScroll: 2 },

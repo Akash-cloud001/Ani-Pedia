@@ -1,0 +1,14 @@
+
+.rec .rec-arrow-right, .rec .rec-arrow-left{
+    background-color: inherit;
+    color: var(--c-text-color);
+    border:none;
+}
+.re .rec-arrow-right:hover:enabled,.rec .rec-arrow-right:focus:enabled, .rec .rec-arrow-left:hover:enabled, .rec .rec-arrow-left:focus:enabled {
+    color: var(--c-yellow);
+    background-color: inherit;
+    box-shadow: rgb(51, 51, 51) 0px 0px 2px 0px;
+}
+.rec .rec-pagination{
+    display: none;
+}
