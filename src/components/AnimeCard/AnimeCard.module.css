@@ -34,7 +34,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 4px;
     height: 100%;
     width: 100%;
 }
@@ -45,6 +46,9 @@
 .aside p{
     color: var(--c-text-color);
     font-size: small;
+}
+.aside .rating{
+    font-weight: bold;
 }
 .type{
     backdrop-filter: blur(25px) saturate(180%);

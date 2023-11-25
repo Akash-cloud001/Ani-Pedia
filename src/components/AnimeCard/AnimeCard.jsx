@@ -5,14 +5,14 @@ const AnimeCard = ({id, title, title_english, images, score, rating, synopsis, t
     let charLimit = 0;
     let trimmedSyn = ''
     for(let ch in synopsis){
-        if(charLimit === 90){
+        if(charLimit === 45){
             trimmedSyn+='...';
             break;
         }
         trimmedSyn+=synopsis[ch];
         charLimit++;
     }
-    const header_title = title_english !== null ? `${title_english} / ${title}` : title; 
+    const header_title = title_english !== null ? title_english : title; 
     const urlTitle = title_english !== null ? title_english : title;
   return (
     <Link className={styles.card} to={`/single-anime/${urlTitle}/${id}`}>
