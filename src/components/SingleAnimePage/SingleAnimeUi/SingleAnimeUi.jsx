@@ -98,14 +98,22 @@ const SingleAnimeUi = ({
               {rating}
             </span>}
           </p>
-          {strippedSynopsis && synopsis && <p className={styles.synopsis}>
+          {
+            synopsis.length >= 200 && <p className={styles.synopsis}>
             {!toggle ? strippedSynopsis : synopsis}
             { !toggle ? 
               <button className={styles.toggleBtn} onClick={handleSetToggle}>Show More</button> 
               : 
               <button className={styles.toggleBtn} onClick={handleSetToggle}>Show Less</button>
             }
-          </p>}
+          </p> 
+          }
+          {
+            synopsis.length < 200 && <p className={styles.synopsis}>
+              {synopsis}
+            </p>
+          }
+
         </aside>
       </header>
       <hr/>
