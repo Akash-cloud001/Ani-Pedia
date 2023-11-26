@@ -21,6 +21,8 @@ const AnimeCard = ({id, title, title_english, images, score, rating, synopsis, t
                 substrLength = 50;
             }else if(window.innerWidth < 1200){
                 substrLength = 45;
+            }else if(window.innerWidth > 1200){
+                substrLength = 90;
             }
 
             const slicedString = synopsis.slice(0, substrLength)+'...';

@@ -8,6 +8,7 @@ import { Routes, Route } from 'react-router-dom';
 import SingleAnimePage from './components/SingleAnimePage/SingleAnimePage';
 import PopularAnime from './components/PopularAnime/PopularAnime';
 import AiringAnime from './components/AiringAnime/AiringAnime';
+import SearchResult from './components/SearchResult/SearchResult';
 
 function App() {
   const { loader, popular, airing } = useContext(DataContext);
@@ -19,6 +20,7 @@ function App() {
       <Route path='/popular/:pageNum' element={<PopularAnime />}/>
       <Route path='/airing/:pageNum' element={<AiringAnime />}/>
       <Route path='/single-anime/:name/:id' element={<SingleAnimePage />} />
+      {/* <Route path='/search-result/:page' element={<SearchResult/>}/> */}
     </Routes>
   <Footer/>
   </main>
